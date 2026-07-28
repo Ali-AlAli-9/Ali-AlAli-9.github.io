@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ali Al-Ali | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="lightbox-close">&times;</span>
+        <button class="lightbox-nav lightbox-prev" onclick="event.stopPropagation(); navigateLightbox(-1)"><i class="fas fa-chevron-left"></i></button>
+        <img class="lightbox-img" id="lightbox-img" alt="">
+        <button class="lightbox-nav lightbox-next" onclick="event.stopPropagation(); navigateLightbox(1)"><i class="fas fa-chevron-right"></i></button>
+        <div class="lightbox-counter" id="lightbox-counter"></div>
+    </div>
+
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">Ali <span>Al-Ali</span></a>
+            <div class="nav-links">
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+                <button id="theme-toggle" aria-label="Theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+            <button class="mobile-menu" id="mobileMenu" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <section id="hero" class="hero">
+        <div class="hero-bg"></div>
+        <div class="container">
+            <div class="hero-content">
+                <p class="hero-greeting">Hello, I'm</p>
+                <h1 class="hero-title">Ali Al-Ali</h1>
+                <p class="hero-subtitle">Computer Engineering Graduate <span class="separator">|</span> Django Developer <span class="separator">|</span> Embedded Systems & IoT</p>
+                <p class="hero-desc">Django developer — building hardware projects integrated with web applications and AI.</p>
+                <div class="hero-actions">
+                    <a href="#projects" class="btn btn-primary">
+                        <i class="fas fa-code"></i> View Projects
+                    </a>
+                    <a href="https://github.com/Ali-AlAli-9" target="_blank" class="btn btn-ghost">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="section">
+        <div class="container">
+            <div class="section-label">What I Work With</div>
+            <h2 class="section-title">Skills & <span class="highlight">Technologies</span></h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-terminal"></i>
+                    </div>
+                    <h3>Software Development</h3>
+                    <div class="skill-tags">
+                        <span>Python</span>
+                        <span>C++</span>
+                        <span>Django & DRF</span>
+                        <span>WebSocket</span>
+                        <span>Django Channels</span>
+                        <span>SSE</span>
+                        <span>Git</span>
+                        <span>Docker</span>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>AI & Computer Vision</h3>
+                    <div class="skill-tags">
+                        <span>YOLOv8</span>
+                        <span>OpenCV</span>
+                        <span>FaceNet</span>
+                        <span>PyTorch</span>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Databases & DevOps</h3>
+                    <div class="skill-tags">
+                        <span>PostgreSQL</span>
+                        <span>Redis</span>
+                        <span>ChromaDB</span>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <h3>Embedded Systems & IoT</h3>
+                    <div class="skill-tags">
+                        <span>Arduino</span>
+                        <span>ESP8266</span>
+                        <span>ESP32</span>
+                        <span>STM32</span>
+                        <span>MATLAB & Simulink</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section projects-section">
+        <div class="container">
+            <div class="section-label">My Work</div>
+            <h2 class="section-title">Featured <span class="highlight">Projects</span></h2>
+
+            <!-- Project 1: ZSTORE -->
+            <div class="project-card">
+                <div class="project-gallery" id="gallery-zstore">
+                    <div class="gallery-tabs">
+                        <button class="gallery-tab active" onclick="switchGalleryTab('zstore', 'admin', this)">Admin</button>
+                        <button class="gallery-tab" onclick="switchGalleryTab('zstore', 'user', this)">User</button>
+                        <button class="gallery-tab" onclick="switchGalleryTab('zstore', 'basic', this)">Basic</button>
+                    </div>
+                    <div class="gallery-tab-content active" data-tab="zstore-admin">
+                        <div class="gallery-main">
+                            <img src="assets/pictures_ecommerce/admin/Screenshot_dashboard.png" alt="ZSTORE Dashboard" class="gallery-hero" onclick="openLightbox(this, 'zstore-admin')">
+                        <div class="gallery-count"><i class="fas fa-images"></i> 9 photos</div>
+                        </div>
+                        <div class="gallery-thumbs" data-gallery="zstore-admin">
+                            <img src="assets/pictures_ecommerce/admin/Screenshot_dashboard.png" alt="Dashboard" onclick="openLightbox(this, 'zstore-admin')">
+                            <img src="assets/pictures_ecommerce/admin/Screenshot_dashborad2.png" alt="Dashboard 2" onclick="openLightbox(this, 'zstore-admin')">
+                            <img src="assets/pictures_ecommerce/admin/Screenshot_dashboard_products.png" alt="Products Dashboard" onclick="openLightbox(this, 'zstore-admin')">
+                            <img src="assets/pictures_ecommerce/admin/Screenshot_admin_cart.png" alt="Admin Cart" onclick="openLightbox(this, 'zstore-admin')">
+                            <img src="assets/pictures_ecommerce/admin/Screenshot_admin_checout.png" alt="Admin Checkout" onclick="openLightbox(this, 'zstore-admin')">
+                            <img src="assets/pictures_ecommerce/admin/Screenshot_admin_products.png" alt="Admin Products" onclick="openLightbox(this, 'zstore-admin')">
+                            <img src="assets/pictures_ecommerce/admin/Screenshot_admin_shipping.png" alt="Admin Shipping" onclick="openLightbox(this, 'zstore-admin')">
+                            <img src="assets/pictures_ecommerce/admin/Screenshot_orders_dashboard.png" alt="Orders Dashboard" onclick="openLightbox(this, 'zstore-admin')">
+                            <img src="assets/pictures_ecommerce/admin/Screenshot_orders.png" alt="Orders" onclick="openLightbox(this, 'zstore-admin')">
+                            <img src="assets/pictures_ecommerce/admin/Screenshot_orders_confirm.png" alt="Order Confirm" onclick="openLightbox(this, 'zstore-admin')">
+                        </div>
+                    </div>
+                    <div class="gallery-tab-content" data-tab="zstore-user">
+                        <div class="gallery-main">
+                            <img src="assets/pictures_ecommerce/user/Screenshot_user.png" alt="User Profile" class="gallery-hero" onclick="openLightbox(this, 'zstore-user')">
+                            <div class="gallery-count"><i class="fas fa-images"></i> 4 photos</div>
+                        </div>
+                        <div class="gallery-thumbs" data-gallery="zstore-user">
+                            <img src="assets/pictures_ecommerce/user/Screenshot_user.png" alt="User Profile" onclick="openLightbox(this, 'zstore-user')">
+                            <img src="assets/pictures_ecommerce/user/Screenshot_user_cart.png" alt="User Cart" onclick="openLightbox(this, 'zstore-user')">
+                            <img src="assets/pictures_ecommerce/user/user_cart.PNG" alt="Cart" onclick="openLightbox(this, 'zstore-user')">
+                            <img src="assets/pictures_ecommerce/user/user_orders.PNG" alt="User Orders" onclick="openLightbox(this, 'zstore-user')">
+                        </div>
+                    </div>
+                    <div class="gallery-tab-content" data-tab="zstore-basic">
+                        <div class="gallery-main">
+                            <img src="assets/pictures_ecommerce/basic/Screenshot_5.png" alt="Screenshot" class="gallery-hero" onclick="openLightbox(this, 'zstore-basic')">
+                            <div class="gallery-count"><i class="fas fa-images"></i> 4 photos</div>
+                        </div>
+                        <div class="gallery-thumbs" data-gallery="zstore-basic">
+                            <img src="assets/pictures_ecommerce/basic/Screenshot_5.png" alt="Screenshot 5" onclick="openLightbox(this, 'zstore-basic')">
+                            <img src="assets/pictures_ecommerce/basic/Screenshot_4.png" alt="Screenshot 4" onclick="openLightbox(this, 'zstore-basic')">
+                            <img src="assets/pictures_ecommerce/basic/Screenshot_3.png" alt="Screenshot 3" onclick="openLightbox(this, 'zstore-basic')">
+                            <img src="assets/pictures_ecommerce/basic/Screenshot_admin.png" alt="Admin" onclick="openLightbox(this, 'zstore-basic')">
+                        </div>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <div class="project-header">
+                        <h3>ZSTORE</h3>
+                    </div>
+                    <p>Full-featured e-commerce platform built with Django REST API and React. Features include product catalog with advanced search and filtering, complete cart management, order lifecycle (pending → confirmed → shipped → delivered), admin dashboard with sales analytics and low-stock alerts. JWT authentication with token rotation, email verification, and Dockerized deployment. <strong>98+ tests</strong> across the entire stack.</p>
+                    <p style="font-size:0.8rem;color:var(--text-muted);border:1px solid var(--border);padding:8px 12px;border-radius:8px;background:var(--accent-glow);"><i class="fas fa-info-circle"></i> Disclaimer: Demo application for portfolio purposes only. All products, prices, and transactions shown are fictional. No real payments are processed.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Django</span>
+                        <span class="tech-tag">DRF</span>
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                        <span class="tech-tag">Docker</span>
+                        <span class="tech-tag">JWT</span>
+                    </div>
+                    <a href="https://github.com/Ali-AlAli-9" class="project-link" target="_blank"><i class="fab fa-github"></i> View on GitHub</a>
+                </div>
+            </div>
+
+            <!-- Project 2: Eye AI Surveillance -->
+            <div class="project-card reverse">
+                <div class="project-gallery">
+                    <div class="gallery-main">
+                        <img src="assets/pictures_camera/dashboard.png" alt="Eye AI Dashboard" class="gallery-hero" onclick="openLightbox(this, 'eyeai')">
+                        <div class="gallery-count"><i class="fas fa-images"></i> 10 photos</div>
+                    </div>
+                    <div class="gallery-thumbs" data-gallery="eyeai">
+                        <img src="assets/pictures_camera/engine_loading.png" alt="Engine Loading" onclick="openLightbox(this, 'eyeai')">
+                        <img src="assets/pictures_camera/dashboard.png" alt="Dashboard" onclick="openLightbox(this, 'eyeai')">
+                        <img src="assets/pictures_camera/history.png" alt="History" onclick="openLightbox(this, 'eyeai')">
+                        <img src="assets/pictures_camera/project_camrea_alerts.png" alt="Alerts" onclick="openLightbox(this, 'eyeai')">
+                        <img src="assets/pictures_camera/Capture_alerts.png" alt="Alert Details" onclick="openLightbox(this, 'eyeai')">
+                        <img src="assets/pictures_camera/live_1.png" alt="Live Stream" onclick="openLightbox(this, 'eyeai')">
+                        <img src="assets/pictures_camera/screencapture-127-0-0-1-8000-live-2026-07-18-21_30_55.png" alt="Live Stream Capture" onclick="openLightbox(this, 'eyeai')">
+                        <img src="assets/pictures_camera/manage_users.png" alt="Manage Users" onclick="openLightbox(this, 'eyeai')">
+                        <img src="assets/pictures_camera/login.png" alt="Login" onclick="openLightbox(this, 'eyeai')">
+                    </div>
+                </div>
+                <div class="project-info">
+                    <div class="project-header">
+                        <h3>Eye AI Surveillance</h3>
+                    </div>
+                    <p>Real-time AI surveillance system running on Uvicorn ASGI server with Django Channels WebSockets. YOLOv8 object detection + ByteTrack tracking + facenet-pytorch face recognition (MTCNN + InceptionResnetV1). Camera feed → motion detection → YOLOv8 → face recognition → WebSocket live stream → Django dashboard with automatic alerts. Professional engine loading page with countdown and auto-redirect. DB resilience (graceful degradation on connection loss), brute force protection (5 attempts → 15 min lockout), CSP headers, audit logging — all in a dark glassmorphism UI. Manual engine start/stop from admin dashboard.</p>
+                    <div class="project-notice">
+                        <i class="fas fa-shield-alt"></i> <strong>Closed system</strong> — only accounts created by the admin (staff) can access the dashboard.
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Django 6.0</span>
+                        <span class="tech-tag">Uvicorn</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                        <span class="tech-tag">YOLOv8</span>
+                        <span class="tech-tag">facenet-pytorch</span>
+                        <span class="tech-tag">WebSocket</span>
+                        <span class="tech-tag">OpenCV</span>
+                        <span class="tech-tag">Channels</span>
+                    </div>
+                    <a href="https://github.com/Ali-AlAli-9" class="project-link" target="_blank"><i class="fab fa-github"></i> View on GitHub</a>
+                </div>
+            </div>
+
+            <!-- Project 3: Document Assistant -->
+            <div class="project-card reverse">
+                <div class="project-gallery">
+                    <div class="gallery-main">
+                        <img src="assets/pictures_rag/Screenshotnew1.png" alt="Document Assistant" class="gallery-hero" onclick="openLightbox(this, 'rag')">
+                        <div class="gallery-count"><i class="fas fa-images"></i> 5 photos</div>
+                    </div>
+                    <div class="gallery-thumbs" data-gallery="rag">
+                        <img src="assets/pictures_rag/Screenshotnew1.png" alt="RAG 1" onclick="openLightbox(this, 'rag')">
+                        <img src="assets/pictures_rag/Screenshotnew2.png" alt="RAG 2" onclick="openLightbox(this, 'rag')">
+                        <img src="assets/pictures_rag/Screenshotnew3.png" alt="RAG 3" onclick="openLightbox(this, 'rag')">
+                        <img src="assets/pictures_rag/Screenshotnew5.png" alt="RAG 5" onclick="openLightbox(this, 'rag')">
+                        <img src="assets/pictures_rag/Screenshotnew6.png" alt="RAG 6" onclick="openLightbox(this, 'rag')">
+                    </div>
+                </div>
+                <div class="project-info">
+                    <div class="project-header">
+                        <h3>Document Assistant</h3>
+                    </div>
+                    <p>Upload PDF, DOCX, or TXT and ask questions in Arabic — get answers grounded in your documents. The system extracts text, creates embeddings, and uses an LLM to answer. Multi-document RAG with per-document retrieval for diverse coverage. Supports Ollama (fully offline, privacy-first) and Gemini (cloud). Real-time streaming responses via SSE. Clean Architecture with dependency injection, Arabic-first UI with full RTL support, prompt injection protection, and corruption recovery. <strong>Docker-ready.</strong></p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Django</span>
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">ChromaDB</span>
+                        <span class="tech-tag">RAG</span>
+                        <span class="tech-tag">Ollama</span>
+                        <span class="tech-tag">Gemini</span>
+                        <span class="tech-tag">SSE</span>
+                        <span class="tech-tag">Docker</span>
+                    </div>
+                    <a href="https://github.com/Ali-AlAli-9" class="project-link" target="_blank"><i class="fab fa-github"></i> View on GitHub</a>
+                </div>
+            </div>
+
+            <!-- Project 4: IoT Home Control -->
+            <div class="project-card">
+                <div class="project-info" style="grid-column: 1 / -1;">
+                    <div class="project-header">
+                        <h3>IoT Home Control via Telegram</h3>
+                    </div>
+                    <p>ESP8266 (NodeMCU) based system for remote control of home appliances through Telegram Bot API. Controls relays for lights and fans, integrates flame sensor for fire detection with real-time alerts. Secure HTTPS communication with SSL/TLS, interactive inline keyboards, periodic polling for commands. Cost-effective and expandable smart home solution.</p>
+                    <div class="project-notice">
+                        <i class="fas fa-info-circle"></i> A detailed presentation with circuit diagrams, component explanations, and the complete Arduino source code is available. <a href="iot-presentation/index.html" target="_blank" style="color:var(--accent);font-weight:600;text-decoration:underline;">View Presentation</a>
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">ESP8266</span>
+                        <span class="tech-tag">Telegram API</span>
+                        <span class="tech-tag">IoT</span>
+                        <span class="tech-tag">C++</span>
+                        <span class="tech-tag">SSL/TLS</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/Ali-AlAli-9" class="project-link" target="_blank"><i class="fab fa-github"></i> View on GitHub</a>
+                        <a href="iot-presentation/index.html" class="project-link" target="_blank"><i class="fas fa-presentation"></i> Presentation</a>
+                        <a href="iot-presentation/code/esp8266_telegram.ino" class="project-link" target="_blank"><i class="fas fa-code"></i> Source Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 5: Smart Solar Tracker -->
+            <div class="project-card reverse">
+                <div class="project-info" style="grid-column: 1 / -1;">
+                    <div class="project-header">
+                        <h3>Smart Solar Tracker</h3>
+                    </div>
+                    <p>Sugeno fuzzy logic-based solar panel tracking system. Designed and modeled in MATLAB/Simulink with a custom 15-rule fuzzy inference engine, then auto-generated to C via Embedded Coder and deployed on Arduino Uno. Hand-optimized Arduino sketch with no external libraries featuring LDR-based light sensing, low-pass filtering, and smooth-step servo control — reducing response time from 9.5s to 3s.</p>
+                    <div class="project-notice">
+                        <i class="fas fa-info-circle"></i> A detailed academic presentation for this project is available — includes methodology, Simulink model, circuit design, and results. <a href="assets/pictures_solar_tracking/presentation/index.html" target="_blank" style="color:var(--accent);font-weight:600;text-decoration:underline;">Click on Presentation</a>
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">MATLAB</span>
+                        <span class="tech-tag">Simulink</span>
+                        <span class="tech-tag">Arduino</span>
+                        <span class="tech-tag">Fuzzy Logic</span>
+                        <span class="tech-tag">Embedded C</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/Ali-AlAli-9" class="project-link" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                        <a href="assets/pictures_solar_tracking/presentation/index.html" class="project-link" target="_blank"><i class="fas fa-presentation"></i> Presentation</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section contact-section">
+        <div class="container">
+            <div class="section-label">Get In Touch</div>
+            <h2 class="section-title">Let's <span class="highlight">Connect</span></h2>
+            <div class="contact-content">
+                <p>Interested in collaborating or have a project in mind? Reach out on GitHub.</p>
+                <div class="contact-links">
+                    <a href="https://github.com/Ali-AlAli-9" target="_blank" class="btn btn-primary">
+                        <i class="fab fa-github"></i> @Ali-AlAli-9
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-inner">
+                <p>&copy; 2026 Ali Al-Ali. Built with <i class="fas fa-heart" style="color: var(--accent);"></i></p>
+                <div class="footer-links">
+                    <a href="https://github.com/Ali-AlAli-9" target="_blank"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-ar="نظام المنزل الذكي | ESP8266 + Telegram" data-en="Smart Home System | ESP8266 + Telegram">نظام المنزل الذكي | ESP8266 + Telegram</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Language Toggle -->
+    <button class="lang-toggle" id="langToggle" onclick="toggleLang()">
+        <i class="fas fa-globe"></i>
+        <span id="langLabel">EN</span>
+    </button>
+
+    <div class="controls">
+        <button onclick="prevSlide()" aria-label="السابق" data-ar-aria="السابق" data-en-aria="Previous"><i class="fas fa-chevron-right"></i></button>
+        <span id="slideCounter">1 / 10</span>
+        <button onclick="nextSlide()" aria-label="التالي" data-ar-aria="التالي" data-en-aria="Next"><i class="fas fa-chevron-left"></i></button>
+    </div>
+
+    <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+
+    <div class="slides-container" id="slidesContainer">
+
+        <!-- Slide 1: Title -->
+        <div class="slide active" id="slide1">
+            <div class="slide-bg"></div>
+            <div class="slide-content center">
+                <h1 class="title-main" data-ar="نظام المنزل الذكي للتحكم عن بعد" data-en="Remote Smart Home Control System">نظام المنزل الذكي للتحكم عن بعد</h1>
+                <h2 class="title-sub" data-ar="باستخدام ESP8266 وتطبيق Telegram" data-en="Using ESP8266 and Telegram App">باستخدام ESP8266 وتطبيق Telegram</h2>
+                <a href="code/esp8266_telegram.ino" class="download-btn" download>
+                    <i class="fas fa-download"></i> <span data-ar="تحميل الكود البرمجي" data-en="Download Source Code">تحميل الكود البرمجي</span>
+                </a>
+                <div class="title-tech">
+                    <span>ESP8266 NodeMCU</span>
+                    <span>Telegram Bot API</span>
+                    <span>IoT</span>
+                    <span>Arduino</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2: Introduction -->
+        <div class="slide" id="slide2">
+            <div class="slide-content">
+                <h2 class="slide-title" data-ar="المقدمة" data-en="Introduction">المقدمة</h2>
+                <p class="slide-text" data-ar="Internet of Things (IoT) هو مفهوم يربط الأجهزة المادية بالإنترنت، مما يتيح التحكم بها ومراقبتها عن بُعد. يهدف هذا المشروع إلى تصميم وتنفيذ نظام منزل ذكي منخفض التكلفة باستخدام الميكروكنترولر ESP8266 وتطبيق Telegram." data-en="Internet of Things (IoT) is a concept that connects physical devices to the internet, enabling remote control and monitoring. This project aims to design and implement a low-cost smart home system using the ESP8266 microcontroller and Telegram app.">Internet of Things (IoT) هو مفهوم يربط الأجهزة المادية بالإنترنت، مما يتيح التحكم بها ومراقبتها عن بُعد. يهدف هذا المشروع إلى تصميم وتنفيذ نظام منزل ذكي منخفض التكلفة باستخدام الميكروكنترولر ESP8266 وتطبيق Telegram.</p>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-wifi"></i>
+                        <h3 data-ar="اتصال Wi-Fi" data-en="Wi-Fi Connectivity">اتصال Wi-Fi</h3>
+                        <p data-ar="اتصال لاسلكي بالإنترنت عبر ESP8266 المدمج" data-en="Wireless internet connection via built-in ESP8266">اتصال لاسلكي بالإنترنت عبر ESP8266 المدمج</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-bolt"></i>
+                        <h3 data-ar="التحكم بالأجهزة" data-en="Device Control">التحكم بالأجهزة</h3>
+                        <p data-ar="تشغيل/إطفاء الأضواء والمراوح عبر الريليهات" data-en="Turn on/off lights and fans via relays">تشغيل/إطفاء الأضواء والمراوح عبر الريليهات</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-fire"></i>
+                        <h3 data-ar="كشف الحرائق" data-en="Fire Detection">كشف الحرائق</h3>
+                        <p data-ar="حساس اللهب يكتشف الحرائق ويرسل إنذار فوري" data-en="Flame sensor detects fires and sends instant alerts">حساس اللهب يكتشف الحرائق ويرسل إنذار فوري</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fab fa-telegram"></i>
+                        <h3 data-ar="بوت Telegram" data-en="Telegram Bot">بوت Telegram</h3>
+                        <p data-ar="واجهة تحكم سهلة عبر أوامر نصية وأزرار تفاعلية" data-en="Easy control interface via text commands and interactive buttons">واجهة تحكم سهلة عبر أوامر نصية وأزرار تفاعلية</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: ESP8266 -->
+        <div class="slide" id="slide3">
+            <div class="slide-content">
+                <h2 class="slide-title">ESP8266 NodeMCU</h2>
+                <div class="slide-layout">
+                    <div class="slide-text-col">
+                        <p data-ar="ESP8266 هو ميكروكنترولر من إنتاج Espressif يتميز بمعالج 32-bit بسرعة 80MHz وذاكرة 4MB و Wi-Fi مدمج. يستخدم في تطبيقات IoT بفضل تكلفته المنخفضة وقدرته على الاتصال بالإنترنت." data-en="ESP8266 is a microcontroller manufactured by Espressif featuring a 32-bit processor at 80MHz, 4MB memory, and built-in Wi-Fi. It is widely used in IoT applications due to its low cost and internet connectivity capability.">ESP8266 هو ميكروكنترولر من إنتاج Espressif يتميز بمعالج 32-bit بسرعة 80MHz وذاكرة 4MB و Wi-Fi مدمج. يستخدم في تطبيقات IoT بفضل تكلفته المنخفضة وقدرته على الاتصال بالإنترنت.</p>
+                        <ul class="spec-list">
+                            <li data-ar="<strong>المعالج:</strong> Tensilica Xtensa LX106 32-bit" data-en="<strong>Processor:</strong> Tensilica Xtensa LX106 32-bit"><strong>المعالج:</strong> Tensilica Xtensa LX106 32-bit</li>
+                            <li data-ar="<strong>السرعة:</strong> 80 MHz (قابلة للرفع إلى 160 MHz)" data-en="<strong>Speed:</strong> 80 MHz (overclockable to 160 MHz)"><strong>السرعة:</strong> 80 MHz (قابلة للرفع إلى 160 MHz)</li>
+                            <li data-ar="<strong>الذاكرة:</strong> 4 MB Flash" data-en="<strong>Memory:</strong> 4 MB Flash"><strong>الذاكرة:</strong> 4 MB Flash</li>
+                            <li data-ar="<strong>Wi-Fi:</strong> 802.11 b/g/n مدمج" data-en="<strong>Wi-Fi:</strong> 802.11 b/g/n Built-in"><strong>Wi-Fi:</strong> 802.11 b/g/n مدمج</li>
+                            <li data-ar="<strong>المنافذ:</strong> 11 GPIO, I2C, SPI, UART, ADC" data-en="<strong>Ports:</strong> 11 GPIO, I2C, SPI, UART, ADC"><strong>المنافذ:</strong> 11 GPIO, I2C, SPI, UART, ADC</li>
+                            <li data-ar="<strong>الجهد:</strong> 3.3V" data-en="<strong>Voltage:</strong> 3.3V"><strong>الجهد:</strong> 3.3V</li>
+                        </ul>
+                    </div>
+                    <div class="slide-img-col">
+                        <img src="images/esp8266.PNG" alt="ESP8266 NodeMCU" onclick="openLightbox(this.src)">
+                        <p class="img-caption" data-ar="ESP8266 NodeMCU — الميكروكنترولر المستخدم في المشروع" data-en="ESP8266 NodeMCU — The Microcontroller Used in the Project">ESP8266 NodeMCU — الميكروكنترولر المستخدم في المشروع</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: Relay Module -->
+        <div class="slide" id="slide4">
+            <div class="slide-content">
+                <h2 class="slide-title" data-ar="ريليه (Relay Module)" data-en="Relay Module">ريليه (Relay Module)</h2>
+                <div class="slide-layout">
+                    <div class="slide-text-col">
+                        <p data-ar="الريليه هو مفتاح كهربائي يُتحكم فيه إلكترونيًا، يسمح بتحكم الميكروكنترولر (3.3V) بأجهزة ذات جهد عالي (220V). يستخدم كوسيط آمن لعزل الدارة السيطرة عن دارة القدرة." data-en="A relay is an electronically controlled switch that allows the microcontroller (3.3V) to control high-voltage devices (220V). It serves as a safe intermediary to isolate the control circuit from the power circuit.">الريليه هو مفتاح كهربائي يُتحكم فيه إلكترونيًا، يسمح بتحكم الميكروكنترولر (3.3V) بأجهزة ذات جهد عالي (220V). يستخدم كوسيط آمن لعزل الدارة السيطرة عن دارة القدرة.</p>
+                        <ul class="spec-list">
+                            <li data-ar="<strong>الجهد:</strong> 5V (دارة السيطرة)" data-en="<strong>Voltage:</strong> 5V (Control Circuit)"><strong>الجهد:</strong> 5V (دارة السيطرة)</li>
+                            <li data-ar="<strong>الحمل:</strong> 250V AC / 10A (دارة القدرة)" data-en="<strong>Load:</strong> 250V AC / 10A (Power Circuit)"><strong>الحمل:</strong> 250V AC / 10A (دارة القدرة)</li>
+                            <li data-ar="<strong>عدد القنوات:</strong> 2 قناة" data-en="<strong>Channels:</strong> 2 Channels"><strong>عدد القنوات:</strong> 2 قناة</li>
+                            <li data-ar="<strong>عزل:</strong> optocoupler للعزل الكهربائي" data-en="<strong>Isolation:</strong> optocoupler for electrical isolation"><strong>عزل:</strong> optocoupler للعزل الكهربائي</li>
+                            <li data-ar="<strong>مؤشر:</strong> LED لكل قناة لحالة التشغيل" data-en="<strong>Indicator:</strong> LED per channel for status"><strong>مؤشر:</strong> LED لكل قناة لحالة التشغيل</li>
+                        </ul>
+                    </div>
+                    <div class="slide-img-col">
+                        <img src="images/relay_module.PNG" alt="Relay Module" onclick="openLightbox(this.src)">
+                        <p class="img-caption" data-ar="موديول الريليه بقناتين — للتحكم بالأجهزة المنزلية" data-en="2-Channel Relay Module — For Controlling Home Devices">موديول الريليه بقناتين — للتحكم بالأجهزة المنزلية</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: Flame Sensor -->
+        <div class="slide" id="slide5">
+            <div class="slide-content">
+                <h2 class="slide-title" data-ar="حساس اللهب (Flame Sensor)" data-en="Flame Sensor">حساس اللهب (Flame Sensor)</h2>
+                <div class="slide-layout">
+                    <div class="slide-text-col">
+                        <p data-ar="حساس اللهب يكشف وجود النار أو اللهب باستخدام الأشعة تحت الحمراء (IR). يرسل إشارة رقمية (HIGH/LOW) عند اكتشاف اللهب ضمن مداه. يستخدم في أنظمة الإنذار المبكر للحرائق." data-en="The flame sensor detects fire or flame using infrared (IR) radiation. It sends a digital signal (HIGH/LOW) when a flame is detected within its range. It is used in early fire warning systems.">حساس اللهب يكشف وجود النار أو اللهب باستخدام الأشعة تحت الحمراء (IR). يرسل إشارة رقمية (HIGH/LOW) عند اكتشاف اللهب ضمن مداه. يستخدم في أنظمة الإنذار المبكر للحرائق.</p>
+                        <ul class="spec-list">
+                            <li data-ar="<strong>نطاق الكشف:</strong> حتى 100 سم" data-en="<strong>Detection Range:</strong> Up to 100 cm"><strong>نطاق الكشف:</strong> حتى 100 سم</li>
+                            <li data-ar="<strong>زاوية الكشف:</strong> 60 درجة" data-en="<strong>Detection Angle:</strong> 60 degrees"><strong>زاوية الكشف:</strong> 60 درجة</li>
+                            <li data-ar="<strong>المخرج:</strong> رقمي (HIGH عند اكتشاف اللهب)" data-en="<strong>Output:</strong> Digital (HIGH when flame detected)"><strong>المخرج:</strong> رقمي (HIGH عند اكتشاف اللهب)</li>
+                            <li data-ar="<strong>الجهد:</strong> 3.3V - 5V" data-en="<strong>Voltage:</strong> 3.3V - 5V"><strong>الجهد:</strong> 3.3V - 5V</li>
+                            <li data-ar="<strong>حساسية:</strong> قابلة للضبط عبر مقاومة متغيرة" data-en="<strong>Sensitivity:</strong> Adjustable via variable resistor"><strong>حساسية:</strong> قابلة للضبط عبر مقاومة متغيرة</li>
+                        </ul>
+                    </div>
+                    <div class="slide-img-col">
+                        <img src="images/flame_sensor.PNG" alt="Flame Sensor" onclick="openLightbox(this.src)">
+                        <p class="img-caption" data-ar="حساس اللهب للكشف عن الحرائق وإرسال إنذار فوري" data-en="Flame Sensor for Fire Detection and Instant Alerting">حساس اللهب للكشف عن الحرائق وإرسال إنذار فوري</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 6: Circuit Diagram -->
+        <div class="slide" id="slide6">
+            <div class="slide-content">
+                <h2 class="slide-title" data-ar="مخطط الدارة الكهربائية" data-en="Electrical Circuit Diagram">مخطط الدارة الكهربائية</h2>
+                <div class="slide-layout single-img">
+                    <div class="slide-img-col full">
+                        <img src="images/the_circuit_diagram.PNG" alt="Circuit Diagram" onclick="openLightbox(this.src)">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 7: Telegram Bot -->
+        <div class="slide" id="slide7">
+            <div class="slide-content">
+                <h2 class="slide-title" data-ar="بوت Telegram" data-en="Telegram Bot">بوت Telegram</h2>
+                <p class="slide-text" data-ar="تم إنشاء البوت عبر BotFather على Telegram، حيث يرسل أوامر نصية ويستقبل استجابات من ESP8266 عبر HTTPS. البوت يدعم أزرار تفاعلية (Inline Keyboards) لتسهيل التحكم." data-en="The bot was created via BotFather on Telegram, sending text commands and receiving responses from ESP8266 via HTTPS. The bot supports interactive buttons (Inline Keyboards) for easy control.">تم إنشاء البوت عبر BotFather على Telegram، حيث يرسل أوامر نصية ويستقبل استجابات من ESP8266 عبر HTTPS. البوت يدعم أزرار تفاعلية (Inline Keyboards) لتسهيل التحكم.</p>
+                <div class="telegram-showcase">
+                    <div class="telegram-card">
+                        <div class="telegram-img-wrapper">
+                            <img src="images/bot_commands.jpg" alt="Bot Commands" onclick="openLightbox(this.src)">
+                        </div>
+                        <p data-ar="واجهة البوت تعرض الأوامر النصية المتاحة للتحكم بكل جهاز (تشغيل/إطفاء)" data-en="Bot interface displays available text commands for controlling each device (on/off)">واجهة البوت تعرض الأوامر النصية المتاحة للتحكم بكل جهاز (تشغيل/إطفاء)</p>
+                    </div>
+                    <div class="telegram-card">
+                        <div class="telegram-img-wrapper">
+                            <img src="images/bot_commands2.jpg" alt="Bot Commands 2" onclick="openLightbox(this.src)">
+                        </div>
+                        <p data-ar="الأزرار التفاعلية (Inline Keyboard) التي تظهر أسفل الرسالة للتحكم السريع" data-en="Interactive buttons (Inline Keyboard) that appear below the message for quick control">الأزرار التفاعلية (Inline Keyboard) التي تظهر أسفل الرسالة للتحكم السريع</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 8: Commands -->
+        <div class="slide" id="slide8">
+            <div class="slide-content">
+                <h2 class="slide-title" data-ar="الأوامر والتحكم" data-en="Commands & Control">الأوامر والتحكم</h2>
+                <div class="commands-table-wrapper">
+                    <table class="commands-table">
+                        <thead>
+                            <tr><th data-ar="الأمر" data-en="Command">الأمر</th><th data-ar="الوظيفة" data-en="Function">الوظيفة</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><code>/start</code></td><td data-ar="بدء المحادثة مع البوت وعرض الترحيب" data-en="Start conversation with bot and show welcome">بدء المحادثة مع البوت وعرض الترحيب</td></tr>
+                            <tr><td><code>/light1_on</code></td><td data-ar="تشغيل الضوء الأول" data-en="Turn on light 1">تشغيل الضوء الأول</td></tr>
+                            <tr><td><code>/light1_off</code></td><td data-ar="إطفاء الضوء الأول" data-en="Turn off light 1">إطفاء الضوء الأول</td></tr>
+                            <tr><td><code>/fan_on</code></td><td data-ar="تشغيل المروحة" data-en="Turn on fan">تشغيل المروحة</td></tr>
+                            <tr><td><code>/fan_off</code></td><td data-ar="إطفاء المروحة" data-en="Turn off fan">إطفاء المروحة</td></tr>
+                            <tr><td><code>/status</code></td><td data-ar="عرض حالة جميع الأجهزة" data-en="Show status of all devices">عرض حالة جميع الأجهزة</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 9: Results -->
+        <div class="slide" id="slide9">
+            <div class="slide-content">
+                <h2 class="slide-title" data-ar="النتائج والاختبارات" data-en="Results & Testing">النتائج والاختبارات</h2>
+                <div class="results-grid">
+                    <div class="result-card success">
+                        <i class="fas fa-check-circle"></i>
+                        <h3 data-ar="زمن الاستجابة" data-en="Response Time">زمن الاستجابة</h3>
+                        <p data-ar="استجابة فورية للأوامر خلال 2-3 ثوانٍ عبر Telegram" data-en="Instant response to commands within 2-3 seconds via Telegram">استجابة فورية للأوامر خلال 2-3 ثوانٍ عبر Telegram</p>
+                    </div>
+                    <div class="result-card success">
+                        <i class="fas fa-check-circle"></i>
+                        <h3 data-ar="مدى التحكم" data-en="Control Range">مدى التحكم</h3>
+                        <p data-ar="تحكم من أي مكان في العالم عبر الإنترنت" data-en="Control from anywhere in the world via internet">تحكم من أي مكان في العالم عبر الإنترنت</p>
+                    </div>
+                    <div class="result-card success">
+                        <i class="fas fa-check-circle"></i>
+                        <h3 data-ar="كشف الحرائق" data-en="Fire Detection">كشف الحرائق</h3>
+                        <p data-ar="اكتشاف اللهب ضمن مدى 100 سم مع إنذار فوري" data-en="Flame detection within 100cm range with instant alert">اكتشاف اللهب ضمن مدى 100 سم مع إنذار فوري</p>
+                    </div>
+                    <div class="result-card success">
+                        <i class="fas fa-check-circle"></i>
+                        <h3 data-ar="استقرار الاتصال" data-en="Connection Stability">استقرار الاتصال</h3>
+                        <p data-ar="نسبة نجاح اتصال 99% مع إعادة اتصال تلقائي" data-en="99% connection success rate with auto-reconnect">نسبة نجاح اتصال 99% مع إعادة اتصال تلقائي</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 10: Conclusion -->
+        <div class="slide" id="slide10">
+            <div class="slide-content center">
+                <h2 class="slide-title" style="margin-bottom:30px;" data-ar="الخاتمة" data-en="Conclusion">الخاتمة</h2>
+                <div class="conclusion-box">
+                    <p data-ar="تم بنجاح تصميم وتنفيذ نظام منزل ذكي منخفض التكلفة باستخدام ESP8266 وتطبيق Telegram، يتيح التحكم بالأجهزة المنزلية عن بُعد مع خاصية كشف الحرائق والإنذار الفوري." data-en="Successfully designed and implemented a low-cost smart home system using ESP8266 and Telegram, enabling remote control of home devices with fire detection and instant alerting features.">تم بنجاح تصميم وتنفيذ نظام منزل ذكي منخفض التكلفة باستخدام ESP8266 وتطبيق Telegram، يتيح التحكم بالأجهزة المنزلية عن بُعد مع خاصية كشف الحرائق والإنذار الفوري.</p>
+                    <div class="conclusion-highlights">
+                        <span><i class="fas fa-check"></i> <span data-ar="تكلفة منخفضة" data-en="Low Cost">تكلفة منخفضة</span></span>
+                        <span><i class="fas fa-check"></i> <span data-ar="سهولة الاستخدام" data-en="Ease of Use">سهولة الاستخدام</span></span>
+                        <span><i class="fas fa-check"></i> <span data-ar="أمان وموثوقية" data-en="Safety & Reliability">أمان وموثوقية</span></span>
+                        <span><i class="fas fa-check"></i> <span data-ar="قابلية التوسع" data-en="Scalability">قابلية التوسع</span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        let current = 0;
+        const slides = document.querySelectorAll('.slide');
+        const counter = document.getElementById('slideCounter');
+        const progress = document.getElementById('progressFill');
+
+        function showSlide(index) {
+            slides.forEach(s => s.classList.remove('active'));
+            slides[index].classList.add('active');
+            counter.textContent = `${index + 1} / ${slides.length}`;
+            progress.style.width = `${((index + 1) / slides.length) * 100}%`;
+        }
+
+        window.nextSlide = function() {
+            if (current < slides.length - 1) { current++; showSlide(current); }
+        };
+
+        window.prevSlide = function() {
+            if (current > 0) { current--; showSlide(current); }
+        };
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') nextSlide();
+            if (e.key === 'ArrowRight') prevSlide();
+        });
+
+        // Lightbox
+        window.openLightbox = function(src) {
+            const lb = document.createElement('div');
+            lb.className = 'lightbox';
+            lb.innerHTML = '<span class="lightbox-close">&times;</span><img class="lightbox-img" src="' + src + '">';
+            lb.onclick = () => lb.remove();
+            document.body.appendChild(lb);
+            setTimeout(() => lb.classList.add('active'), 10);
+        };
+
+        // ===== BILINGUAL SUPPORT =====
+        let currentLang = localStorage.getItem('iot-lang') || 'ar';
+
+        window.toggleLang = function() {
+            currentLang = currentLang === 'ar' ? 'en' : 'ar';
+            localStorage.setItem('iot-lang', currentLang);
+            applyLanguage();
+        };
+
+        function applyLanguage() {
+            const html = document.documentElement;
+
+            html.setAttribute('lang', currentLang === 'ar' ? 'ar' : 'en');
+            html.setAttribute('dir', currentLang === 'ar' ? 'rtl' : 'ltr');
+
+            document.title = document.querySelector('title').getAttribute('data-' + currentLang);
+            document.getElementById('langLabel').textContent = currentLang === 'ar' ? 'EN' : 'AR';
+
+            document.querySelectorAll('[data-ar][data-en]').forEach(el => {
+                const val = el.getAttribute('data-' + currentLang);
+                if (val !== null) {
+                    if (val.includes('<') && val.includes('>')) {
+                        el.innerHTML = val;
+                    } else {
+                        el.textContent = val;
+                    }
+                }
+            });
+
+            document.querySelectorAll('[data-ar-aria][data-en-aria]').forEach(el => {
+                el.setAttribute('aria-label', el.getAttribute('data-' + currentLang + '-aria'));
+            });
+        }
+
+        applyLanguage();
+    </script>
+</body>
+</html>
