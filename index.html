@@ -271,7 +271,79 @@
                 </div>
             </div>
 
-            <!-- Project 4: IoT Home Control -->
+            <!-- Project 4: Clinic Agent -->
+            <div class="project-card reverse">
+                <div class="project-gallery" id="gallery-clinic">
+                    <div class="gallery-tabs">
+                        <button class="gallery-tab active" onclick="switchGalleryTab('clinic', 'chat', this)">Chat</button>
+                        <button class="gallery-tab" onclick="switchGalleryTab('clinic', 'admin', this)">Admin</button>
+                    </div>
+                    <div class="gallery-tab-content active" data-tab="clinic-chat">
+                        <div class="gallery-main">
+                            <img src="assets/pictures_clinic/chat/1.png" alt="Clinic Agent Chat" class="gallery-hero" onclick="openLightbox(this, 'clinic-chat')">
+                            <div class="gallery-count"><i class="fas fa-images"></i> 3 photos</div>
+                        </div>
+                        <div class="gallery-thumbs" data-gallery="clinic-chat">
+                            <img src="assets/pictures_clinic/chat/1.png" alt="Chat 1" onclick="openLightbox(this, 'clinic-chat')">
+                            <img src="assets/pictures_clinic/chat/2.png" alt="Chat 2" onclick="openLightbox(this, 'clinic-chat')">
+                            <img src="assets/pictures_clinic/chat/3.png" alt="Chat 3" onclick="openLightbox(this, 'clinic-chat')">
+                        </div>
+                    </div>
+                    <div class="gallery-tab-content" data-tab="clinic-admin">
+                        <div class="gallery-main">
+                            <img src="assets/pictures_clinic/admin/1.png" alt="Clinic Agent Admin" class="gallery-hero" onclick="openLightbox(this, 'clinic-admin')">
+                            <div class="gallery-count"><i class="fas fa-images"></i> 3 photos</div>
+                        </div>
+                        <div class="gallery-thumbs" data-gallery="clinic-admin">
+                            <img src="assets/pictures_clinic/admin/1.png" alt="Admin 1" onclick="openLightbox(this, 'clinic-admin')">
+                            <img src="assets/pictures_clinic/admin/2.png" alt="Admin 2" onclick="openLightbox(this, 'clinic-admin')">
+                            <img src="assets/pictures_clinic/admin/3.png" alt="Admin 3" onclick="openLightbox(this, 'clinic-admin')">
+                        </div>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <div class="project-header">
+                        <h3>Clinic Agent — AI Voice Appointment System</h3>
+                    </div>
+                    <p><strong>Multichannel AI booking agent for medical clinics</strong> that lets patients book, cancel, and manage appointments by texting <em>or speaking</em> in natural language — all through the messaging apps they already use. The patient sends *"Book me with Dr. Sara tomorrow at 10"* and the assistant handles the rest.</p>
+
+                    <h4 style="margin:14px 0 6px;font-size:0.95rem;color:var(--heading);"><i class="fas fa-cogs"></i> Key Features &amp; Services</h4>
+                    <ul style="margin:0;padding-left:18px;font-size:0.9rem;line-height:1.9;color:var(--text);">
+                        <li><strong>Natural-language booking:</strong> full three-part name, doctor conflict checks, and per-doctor working hours.</li>
+                        <li><strong>Voice-first support:</strong> patients send a voice note → transcribed via Gemini STT → the reply comes back as a clear audio message (free Edge TTS, male Fusha voice) with a text fallback.</li>
+                        <li><strong>Multichannel:</strong> Telegram and WhatsApp through one unified gateway — switch with a single <code>.env</code> line.</li>
+                        <li><strong>Full lifecycle:</strong> active-limit control, cancel by description with explicit confirmation, upcoming list, and a searchable archive.</li>
+                        <li><strong>Tasks &amp; reminders:</strong> add, list, and complete user tasks.</li>
+                        <li><strong>Admin toolkit (via chat):</strong> view any doctor's bookings, delete (day / hour-range / single / per account), block &amp; unblock users, and broadcast or message specific accounts.</li>
+                    </ul>
+
+                    <h4 style="margin:14px 0 6px;font-size:0.95rem;color:var(--heading);"><i class="fas fa-shield-alt"></i> Security &amp; Privacy</h4>
+                    <ul style="margin:0;padding-left:18px;font-size:0.9rem;line-height:1.9;color:var(--text);">
+                        <li><strong>Medical notes encrypted</strong> with Fernet at rest — private data never appears in plaintext.</li>
+                        <li><strong>Admin identity is server-side</strong> and un-spoofable, plus a server-side per-account daily cap to protect the AI quota.</li>
+                        <li><strong>Signed Telegram webhook</strong> (secret in the URL path) and <strong>HMAC-verified WhatsApp webhook</strong> — unauthenticated requests are rejected before touching the system.</li>
+                        <li><strong>Brute-force protection</strong> on the admin panel (5 failed logins → 30-minute lockout) via django-axes.</li>
+                        <li><strong>Rate limiting + message dedup</strong> on every message through the unified gateway; media handled fully in-memory (never written to disk).</li>
+                    </ul>
+
+                    <div class="project-tech">
+                        <span class="tech-tag">Django</span>
+                        <span class="tech-tag">Google ADK</span>
+                        <span class="tech-tag">Gemini AI</span>
+                        <span class="tech-tag">FastAPI</span>
+                        <span class="tech-tag">Telegram API</span>
+                        <span class="tech-tag">WhatsApp Cloud</span>
+                        <span class="tech-tag">Edge TTS</span>
+                        <span class="tech-tag">WebSocket</span>
+                    </div>
+                    <div class="project-notice">
+                        <i class="fas fa-info-circle"></i> Demo project for portfolio purposes — all patient names and appointments shown are fictional.
+                    </div>
+                    <a href="https://github.com/Ali-AlAli-9" class="project-link" target="_blank"><i class="fab fa-github"></i> View on GitHub</a>
+                </div>
+            </div>
+
+            <!-- Project 5: IoT Home Control -->
             <div class="project-card">
                 <div class="project-info" style="grid-column: 1 / -1;">
                     <div class="project-header">
@@ -296,7 +368,7 @@
                 </div>
             </div>
 
-            <!-- Project 5: Smart Solar Tracker -->
+            <!-- Project 6: Smart Solar Tracker -->
             <div class="project-card reverse">
                 <div class="project-info" style="grid-column: 1 / -1;">
                     <div class="project-header">
