@@ -642,19 +642,16 @@ body.light nav {
     flex-shrink: 0;
 }
 
-/* Try-it-live CTA (Telegram bot) */
+/* Try-it-live CTA (Telegram bot) — button and cold-start note in one box */
 .project-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
     align-self: flex-start;
     max-width: 100%;
-    padding: 11px 18px;
+    padding: 12px 16px;
     border-radius: 12px;
-    font-size: 0.9rem;
-    font-weight: 600;
     color: #fff;
-    text-decoration: none;
     background: linear-gradient(135deg, #2aabee, #229ed9);
     box-shadow: 0 6px 18px rgba(34, 158, 217, 0.35);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -665,28 +662,37 @@ body.light nav {
     box-shadow: 0 10px 26px rgba(34, 158, 217, 0.55);
 }
 
-.project-cta i {
+.project-cta-main {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #fff;
+    text-decoration: none;
+}
+
+.project-cta-main i {
     font-size: 1.2rem;
     flex-shrink: 0;
 }
 
-.project-cta strong {
+.project-cta-main strong {
     font-weight: 800;
 }
 
-/* Cold-start hint under the CTA */
-.project-hint {
+.project-cta-hint {
     display: flex;
     align-items: flex-start;
     gap: 8px;
-    font-size: 0.8rem;
-    line-height: 1.7;
-    color: var(--text-muted);
+    font-size: 0.78rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
 }
 
-.project-hint i {
-    color: var(--accent);
-    margin-top: 3px;
+.project-cta-hint i {
+    font-size: 0.9rem;
+    margin-top: 2px;
     flex-shrink: 0;
 }
 
