@@ -322,12 +322,13 @@
 
                     <h4 style="margin:14px 0 6px;font-size:0.95rem;color:var(--heading);"><i class="fas fa-cogs"></i> Key Features &amp; Services</h4>
                     <ul style="margin:0;padding-left:18px;font-size:0.9rem;line-height:1.9;color:var(--text);">
-                        <li><strong>Natural-language booking:</strong> full three-part name, doctor conflict checks, and per-doctor working hours.</li>
-                        <li><strong>Voice-first support:</strong> patients send a voice note → transcribed via Gemini STT → the reply comes back as a clear audio message (free Edge TTS, male Fusha voice) with a text fallback.</li>
+                        <li><strong>Natural-language booking:</strong> full three-part name, doctor conflict checks, per-doctor working hours, past dates rejected, and a forward booking window — at most 2 upcoming appointments per account inside the next 30 days, so expired bookings never block a new one (admins exempt).</li>
+                        <li><strong>Voice-first support:</strong> patients send a voice note → transcribed via Gemini STT → the reply comes back as a clear audio message (free Edge TTS, Jordanian female Fusha voice) or as text. Text is the default; once the patient asks for voice, every later reply stays voice until they switch back, and the TTS client retries transient network failures instead of dropping the audio.</li>
                         <li><strong>Multichannel:</strong> Telegram and WhatsApp through one unified gateway — switch with a single <code>.env</code> line.</li>
-                        <li><strong>Full lifecycle:</strong> active-limit control, cancel by description with explicit confirmation, upcoming list, and a searchable archive.</li>
+                        <li><strong>Full lifecycle:</strong> cancel by description with explicit confirmation, upcoming list, and a searchable archive.</li>
                         <li><strong>Tasks &amp; reminders:</strong> add, list, and complete user tasks.</li>
                         <li><strong>Admin toolkit (via chat):</strong> view any doctor's bookings, delete (day / hour-range / single / per account), block &amp; unblock users, and broadcast or message specific accounts.</li>
+                        <li><strong>Human hand-off:</strong> when the patient asks for a person, every admin receives an instant notification with the patient's name and a tap-to-open link to the chat — raw account numbers are never exposed.</li>
                     </ul>
 
                     <h4 style="margin:14px 0 6px;font-size:0.95rem;color:var(--heading);"><i class="fas fa-shield-alt"></i> Security &amp; Privacy</h4>
@@ -348,6 +349,9 @@
                         <span class="tech-tag">WhatsApp Cloud</span>
                         <span class="tech-tag">Edge TTS</span>
                         <span class="tech-tag">WebSocket</span>
+                        <span class="tech-tag">Docker</span>
+                        <span class="tech-tag">Render</span>
+                        <span class="tech-tag">Supabase</span>
                     </div>
                     <div class="project-notice">
                         <i class="fas fa-info-circle"></i> Demo project for portfolio purposes — all patient names and appointments shown are fictional.
