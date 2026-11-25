@@ -129,7 +129,9 @@
 
     "05 Get in touch": `<span>05</span> تواصل معي`,
     "Let's Connect": `<span class="highlight">لنتواصل</span>`,
-    "Interested in collaborating or have a project in mind? Reach out on GitHub.": "هل لديك فكرة تعاون أو مشروع؟ تواصل معي عبر GitHub.",
+    "Interested in collaborating or have a project in mind? Reach out by email, WhatsApp, or GitHub.": "هل لديك فكرة تعاون أو مشروع؟ تواصل معي عبر البريد الإلكتروني أو واتساب أو GitHub.",
+    "WhatsApp": "واتساب",
+    "Email me": "راسلني عبر البريد",
     "Browse the work again": "تصفّح الأعمال مجدداً",
     "© 2026 Ali Al-Ali. Built with": `© 2026 علي العلي. صُنع بـ <i class="fas fa-heart" style="color: var(--accent);" aria-hidden="true"></i>`
   };
@@ -142,6 +144,8 @@
     "Previous screenshot": "اللقطة السابقة",
     "Next screenshot": "اللقطة التالية",
     "GitHub profile": "ملف GitHub",
+    "Email Ali": "أرسل بريداً إلى علي",
+    "WhatsApp Ali": "واتساب علي",
     "Open menu": "فتح القائمة",
     "Close menu": "إغلاق القائمة"
   };
@@ -175,7 +179,7 @@
     if (target === 'ar') {
       const skip = '.project-gallery, .gallery-tab-content, .gallery-main';
       document.querySelectorAll('body *').forEach(el => {
-        if (el.matches(skip) || el.matches('.logo') || el.closest('.logo') || el.closest('[data-tr-done]')) return;
+        if (el.matches(skip) || el.matches('.logo, footer, .footer-inner, footer .container') || el.closest('.logo') || el.closest('[data-tr-done]')) return;
         const key = norm(el.textContent);
         let value = ar[key];
         if (key === 'Work' && el.matches('.about-facts span')) value = 'نوع العمل';

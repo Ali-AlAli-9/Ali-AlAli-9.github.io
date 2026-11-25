@@ -758,20 +758,51 @@ body.light nav {
 }
 
 .contact-content {
-    max-width: 500px;
+    max-width: 640px;
     margin: 0 auto;
 }
 
 .contact-content p {
     color: var(--text-secondary);
-    margin-bottom: 32px;
+    margin-bottom: 28px;
     font-size: 1rem;
 }
 
 .contact-links .btn {
-    font-size: 1rem;
-    padding: 14px 36px;
+    font-size: 0.95rem;
+    padding: 12px 24px;
 }
+
+.btn-whatsapp {
+    background: #0f766e;
+    color: #fff;
+    box-shadow: 0 4px 20px rgba(15, 118, 110, 0.3);
+}
+
+.btn-whatsapp:hover {
+    background: #115e59;
+    transform: translateY(-2px);
+}
+
+.contact-details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 22px;
+    margin-top: 22px;
+    font-size: 0.9rem;
+}
+
+.contact-details a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-secondary);
+    text-decoration: none;
+}
+
+.contact-details a:hover { color: var(--accent-text); }
+.contact-details i { color: var(--accent-text); }
 
 /* Footer */
 footer {
@@ -785,6 +816,11 @@ footer {
     align-items: center;
     color: var(--text-muted);
     font-size: 0.85rem;
+}
+
+.footer-links {
+    display: flex;
+    gap: 14px;
 }
 
 .footer-links a {
