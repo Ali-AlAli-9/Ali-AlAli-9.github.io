@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ali-ali9.github.io/sitemap.xml
+Sitemap: https://ali-alali-9.github.io/sitemap.xml
